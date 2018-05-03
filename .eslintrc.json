@@ -6,6 +6,10 @@
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/prefer-stateless-function": [0, { "ignorePureComponents": true }]
+    "react/prefer-stateless-function": [0, { "ignorePureComponents": true }],
+    "max-len": [0, {"code": 100, "tabWidth": 2, "ignoreUrls": true}],
+    "no-return-assign": 0,
+    "react/prop-types": 0,
+    "import/prefer-default-export": 0
   }
 }
