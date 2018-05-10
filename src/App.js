@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import MovieBrowser from './modules/movie-browser/movie-browser.container';
+import MovieBrowser from './containers/movies/movie-container';
 
 class App extends Component {
   render() {

@@ -1,18 +1,21 @@
-import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunkMiddlware from 'redux-thunk';
+import promiseMiddleware from 'redux-promise';
 import { createLogger } from 'redux-logger';
-import movieBrowserReducer from './modules/movie-browser/movie-browser.reducers';
+import movieReducer from './redux/reducers';
 
 const rootReducer = combineReducers({
-  movieBrowser: movieBrowserReducer,
+  movieBrowser: movieReducer,
 });
 
 const loggerMiddleware = createLogger();
 
-const store = createStore(
-  rootReducer,
-  undefined,
-  compose(applyMiddleware(thunkMiddlware, loggerMiddleware)),
+const middleware = applyMiddleware(
+  promiseMiddleware,
+  thunkMiddlware,
+  loggerMiddleware,
 );
+
+const store = createStore(rootReducer, middleware);
 
 export default store;
